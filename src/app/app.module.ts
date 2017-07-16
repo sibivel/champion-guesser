@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RequestButtonComponent } from './request-button/request-button.component';
 // Import HttpClientModule from @angular/common/http
-import {HttpClientModule} from '@angular/common/http';
+import {HttpModule} from '@angular/http';
 import {MatchService} from './match.service';
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import {MatchService} from './match.service';
     RequestButtonComponent,
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule, HttpModule,
   ],
   providers: [MatchService,],
   bootstrap: [AppComponent]
