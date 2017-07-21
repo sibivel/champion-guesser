@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatchDataDto } from "./match";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,16 @@ export class AppComponent {
   constructor(){
 
   }
-  
+  showMatch:boolean = false;
   someProperty:string = '';
-
+  public match:MatchDataDto;
   ngOnInit() {
   }
+
+  ngOnChange(){
+    console.log('root match: ' + this.match)
+  }
+
+  
 
 }

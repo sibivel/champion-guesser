@@ -19,5 +19,11 @@
   </li>
 </ul> -->
 
-<app-request-button></app-request-button>
-
+<div class="container">
+  <div class="row">
+    <app-match-view *ngIf="showMatch" [match]="match"></app-match-view>
+  </div>
+  <div class="row">
+    <app-request-button></app-request-button>
+  </div>
+</div>

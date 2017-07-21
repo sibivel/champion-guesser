@@ -30,6 +30,7 @@ exports.initChampionData = function(){
     let path = constants.paths.CHAMPIONS;
     let qs = {locale:'en_US',dataById:'true'};
     makeRiotRequest(path,'NA',qs,function(err, res, body){
+        console.log(res.statusCode);
         if(err != null){
             console.log('ERROR: ' + err);
         }
@@ -44,6 +45,7 @@ exports.initItemData = function(){
     let path = constants.paths.ITEMS;
     let qs = {locale:'en_US'};
     makeRiotRequest(path,'NA',qs,function(err, res, body){
+        console.log(res.statusCode);
         if(err != null){
             console.log('ERROR: ' + err);
         }
@@ -58,6 +60,7 @@ exports.initMasteryData = function(){
     let path = constants.paths.MASTERIES;
     let qs = {locale:'en_US'};
     makeRiotRequest(path,'NA',qs,function(err, res, body){
+        console.log(res.statusCode);
         if(err != null){
             console.log('ERROR: ' + err);
         }
@@ -72,6 +75,7 @@ exports.initSummonerSpellData = function(){
     let path = constants.paths.SUMMONERSPELLS;
     let qs = {locale:'en_US',dataById:'true'};
     makeRiotRequest(path,'NA',qs,function(err, res, body){
+        console.log(res.statusCode);
         if(err != null){
             console.log('ERROR: ' + err);
         }

@@ -10,9 +10,7 @@ export class MatchService {
   constructor(private http: Http) { }
   getMatch(){
     // Make the HTTP request:
-    return this.http.get("/api/match/").toPromise().then(function(response){
-      console.log(response);
-    })
+    return this.http.get("/api/match/").toPromise()
              .catch(this.handleError);
   }
 

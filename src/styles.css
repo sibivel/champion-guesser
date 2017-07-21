@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css"; 
 h1{
     text-decoration:underline;
+}
+
+.my-img{
+    border: 1em solid #1e63ad;
+    border-radius: 1em;
 }
