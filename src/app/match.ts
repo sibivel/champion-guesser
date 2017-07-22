@@ -17,9 +17,9 @@ export class ChampionDto {
 }
 
 export class ItemDto {
-    description:string;
     id: number;
     name: string;
+    description:string;
     plaintext: string;
 }
 

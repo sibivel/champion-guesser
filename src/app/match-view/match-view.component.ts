@@ -14,7 +14,7 @@ export class MatchViewComponent implements OnInit {
   match:MatchDataDto;
   
   ngOnInit() {
-    console.log('match: '+ this.match)
+    
   }
 
   ngOnChanges(){

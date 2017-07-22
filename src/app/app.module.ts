@@ -9,6 +9,8 @@ import {MatchService} from './match.service';
 import { MatchViewComponent } from './match-view/match-view.component';
 import { LargeChampImageComponent } from './large-champ-image/large-champ-image.component';
 import { MatchDataViewComponent } from './match-data-view/match-data-view.component';
+import { ChampThumbnailComponent } from './champ-thumbnail/champ-thumbnail.component';
+import { ItemThumbnailComponent } from './item-thumbnail/item-thumbnail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +18,8 @@ import { MatchDataViewComponent } from './match-data-view/match-data-view.compon
     MatchViewComponent,
     LargeChampImageComponent,
     MatchDataViewComponent,
+    ChampThumbnailComponent,
+    ItemThumbnailComponent,
   ],
   imports: [
     BrowserModule, HttpModule,

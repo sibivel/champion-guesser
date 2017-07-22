@@ -1,3 +1,17 @@
-<p>
-  match-data-view works!
-</p>
+  <div class = 'row my-row'>
+    <div class = 'col'>
+      Role: {{this.myRole}}
+    </div>
+    <div class = 'col'>
+      K/D/A: {{match.kda.kills}}/{{match.kda.deaths}}/{{match.kda.assists}}
+    </div>
+    <div class = 'col'>
+      CS: {{match.cs}}
+    </div>
+  </div>
+  
+  <div class = 'row my-row'>
+    <div class = 'col' *ngFor="let item of this.match.items">
+      <app-item-thumbnail [item]="item"></app-item-thumbnail>
+    </div>
+  </div>

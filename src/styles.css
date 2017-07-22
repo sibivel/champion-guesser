@@ -8,3 +8,11 @@ h1{
     border: 1em solid #1e63ad;
     border-radius: 1em;
 }
+
+.is-table{
+    display: table;
+}
+
+.is-table > * { 
+    display: table-cell;
+}
