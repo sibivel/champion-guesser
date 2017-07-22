@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemDto } from "../match";
-import { DDragonUtil } from "../../constants";
+import { DDragonUtil } from "../../utils";
 
 @Component({
   selector: 'app-item-thumbnail',

@@ -16,3 +16,7 @@ h1{
 .is-table > * { 
     display: table-cell;
 }
+
+body{
+    color: white
+}

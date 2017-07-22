@@ -11,6 +11,7 @@ import { LargeChampImageComponent } from './large-champ-image/large-champ-image.
 import { MatchDataViewComponent } from './match-data-view/match-data-view.component';
 import { ChampThumbnailComponent } from './champ-thumbnail/champ-thumbnail.component';
 import { ItemThumbnailComponent } from './item-thumbnail/item-thumbnail.component';
+import { SpellThumbnailComponent } from './spell-thumbnail/spell-thumbnail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { ItemThumbnailComponent } from './item-thumbnail/item-thumbnail.componen
     MatchDataViewComponent,
     ChampThumbnailComponent,
     ItemThumbnailComponent,
+    SpellThumbnailComponent,
   ],
   imports: [
     BrowserModule, HttpModule,

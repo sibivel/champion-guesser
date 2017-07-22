@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemDto } from "../match";
-import { DDragonUtil } from "../../constants";
+import { DDragonUtil } from "../../utils";
 
 @Component({
   selector: 'app-champ-thumbnail',
@@ -13,13 +13,9 @@ export class ChampThumbnailComponent implements OnInit {
   
 
 
-  @Input()
-  item:ItemDto;
   
-  url:string;
 
   ngOnInit() {
-    this.url = DDragonUtil.itemUrl(this.item.id)
   }
 
 }
