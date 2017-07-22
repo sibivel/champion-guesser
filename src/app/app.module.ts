@@ -12,6 +12,7 @@ import { MatchDataViewComponent } from './match-data-view/match-data-view.compon
 import { ChampThumbnailComponent } from './champ-thumbnail/champ-thumbnail.component';
 import { ItemThumbnailComponent } from './item-thumbnail/item-thumbnail.component';
 import { SpellThumbnailComponent } from './spell-thumbnail/spell-thumbnail.component';
+import { KeystoneThumbnailComponent } from './keystone-thumbnail/keystone-thumbnail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { SpellThumbnailComponent } from './spell-thumbnail/spell-thumbnail.compo
     ChampThumbnailComponent,
     ItemThumbnailComponent,
     SpellThumbnailComponent,
+    KeystoneThumbnailComponent,
   ],
   imports: [
     BrowserModule, HttpModule,

@@ -1,4 +1,4 @@
-  <div class = 'row my-row'>
+  <div class = 'p-2 row my-row'>
     <div class = 'col'>
       Role: {{this.myRole}}
     </div>
@@ -10,17 +10,20 @@
     </div>
   </div>
   
-  <div class = 'row my-row'>
+  <div class = 'row p-3 my-row'>
     <div class = 'col' *ngFor="let item of this.match.items">
       <app-item-thumbnail [item]="item"></app-item-thumbnail>
     </div>
   </div>
 
-  <div class = 'row my-row'>
+  <div class = 'row p-4 my-row'>
     <div class = 'col-sm-2'>
       <app-spell-thumbnail [spell]="match.summonerSpells['0']"></app-spell-thumbnail>
     </div>
     <div class = 'col-sm-2'>
       <app-spell-thumbnail [spell]="match.summonerSpells['1']"></app-spell-thumbnail>
+    </div>
+    <div class = 'col-sm-8 d-flex align-items-center justify-content-center'>
+      <app-keystone-thumbnail [keystone]="match.keystone"></app-keystone-thumbnail>
     </div>
     
