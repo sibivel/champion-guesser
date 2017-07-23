@@ -1,9 +1,10 @@
 'use strict';
-
+const utils = require('./utils');
 module.exports = function(res,body,participantId){
     const constants = require('./myConstants');
     const allItems = constants.items;
     const allMasteries = constants.masteries;
+    const allChampions = constants.champions;
     //participantId = 3;
     //console.log(body);
     console.log('ParticipantId: '+ participantId);
@@ -34,12 +35,14 @@ module.exports = function(res,body,participantId){
     matchDataDto.role = setRole();
     console.log(matchDataDto.role);
 
+    matchDataDto.options = setOptions(15);
+
     return matchDataDto;
     
     function setChampion(){
         let id = participantDto.championId;
         console.log(id);
-        return constants.champions[id];
+        return allChampions[id];
     }
     
     function setItems(statsDto){
@@ -92,6 +95,36 @@ module.exports = function(res,body,participantId){
             return timelineDto.lane;
         }
     }
+
+    function setOptions(size = 15){
+        let answer = Math.floor(Math.random()*size);
+        let correctId = participantDto.championId;
+        let idList = [correctId];
+        let list = [];
+
+        for(let i = 0; i < size; i++){
+            if(i == answer){
+                list[i] = allChampions[correctId]
+            }else{
+                let id = -1;
+                let newChamp;
+                do{
+                    newChamp = utils.pickRandomProperty(allChampions);
+                    id = newChamp.id;
+                }
+                while(idList.indexOf(id) != -1);
+                list.push(newChamp);
+                idList.push(id);
+            }
+        }
+
+        return {
+            answer : answer,
+            list : list
+        }
+        
+    }
+ 
 
 }
 
