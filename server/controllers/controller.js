@@ -1,5 +1,9 @@
 'use strict';
 const riotFunctions = require('../utils/riotFunctions');
+const randomstring = require("randomstring");
+const SC = require("../models/session-control");
+const SessionObject = SC.SessionObject;
+
 exports.testRequest = function(req,res){
     riotFunctions.magicNumber = 5;
     console.log(riotFunctions.magicNumber);
@@ -14,4 +18,11 @@ exports.matchRequest = function(req,res){
     var data = riotFunctions.getMatchData(res,['2543649693']);
     //console.log(data);
     //res.send(data);
+}
+
+exports.sessionStartRequest = function(req,res){
+    let key = randomstring.generate(24);
+    SC.sessionMap[key] = new SessionObject(key);
+    console.log('key: '+ SC.sessionMap[key].key + " date: " + SC.sessionMap[key].date);
+    res.send(key);
 }

@@ -17,4 +17,5 @@ module.exports = function(router) {
     
     router.get('/test', controller.testRequest);
     router.get('/match', controller.matchRequest);
+    router.get('/session/start', controller.sessionStartRequest);
 };
