@@ -8,6 +8,9 @@ import { MatchDataDto } from "../match";
   styleUrls: ['./match-data-view.component.css']
 })
 export class MatchDataViewComponent implements OnInit {
+  ngOnInit(): void {
+    
+  }
   constructor() {
     
   }
@@ -16,15 +19,14 @@ export class MatchDataViewComponent implements OnInit {
   match:MatchDataDto;
   
   myRole:String;
-  ngOnInit() {
-    console.log('match: '+ this.match);
+  ngOnChanges() {
+    this.myRole = this.match.role;
     switch(this.match.role){
       case 'MIDDLE':
         this.myRole = 'MID';
         break;
-      default:
-        this.myRole = this.match.role;
     }
+    console.log('role: ' + this.match.role);
   }
 
 }

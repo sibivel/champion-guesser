@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemDto } from "../match";
+import { ChampionDto } from "../match";
 import { DDragonUtil } from "../../utils";
 
 @Component({
@@ -11,11 +11,13 @@ export class ChampThumbnailComponent implements OnInit {
   
   constructor() {}
   
+  @Input()
+  champion:ChampionDto;
 
-
-  
+  url:string;
 
   ngOnInit() {
+    this.url = DDragonUtil.championSmallUrl(this.champion.key)
   }
 
 }

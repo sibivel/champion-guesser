@@ -7,6 +7,7 @@ export class MatchDataDto {
     keystone: KeystoneDto;
     role: string;
     summonerSpells: SummonerSpellsDto;
+    options: OptionsDto;
 }
 
 export class ChampionDto {
@@ -46,4 +47,9 @@ export class SpellDto{
     key:string;
     name:string;
     summonerLevel:number;
+}
+
+export class OptionsDto{
+    answer:number;
+    list:Array<ChampionDto>;
 }

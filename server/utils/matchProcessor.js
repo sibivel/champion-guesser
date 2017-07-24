@@ -35,8 +35,10 @@ module.exports = function(res,body,participantId){
     matchDataDto.role = setRole();
     console.log(matchDataDto.role);
 
-    matchDataDto.options = setOptions(15);
-
+    matchDataDto.options = setOptions(20);
+    console.log(matchDataDto.options);
+    console.log(matchDataDto.options.list.length);
+    
     return matchDataDto;
     
     function setChampion(){
@@ -96,10 +98,10 @@ module.exports = function(res,body,participantId){
         }
     }
 
-    function setOptions(size = 15){
+    function setOptions(size = 20){
         let answer = Math.floor(Math.random()*size);
         let correctId = participantDto.championId;
-        let idList = [correctId];
+        let idList = [""+correctId];
         let list = [];
 
         for(let i = 0; i < size; i++){
@@ -109,8 +111,8 @@ module.exports = function(res,body,participantId){
                 let id = -1;
                 let newChamp;
                 do{
-                    newChamp = utils.pickRandomProperty(allChampions);
-                    id = newChamp.id;
+                    id = utils.pickRandomProperty(allChampions);
+                    newChamp = allChampions[id];
                 }
                 while(idList.indexOf(id) != -1);
                 list.push(newChamp);
