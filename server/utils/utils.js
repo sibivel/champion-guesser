@@ -40,3 +40,14 @@ exports.getJSON = function(options, onResult)
     }, 6000);
     
 };
+
+//copied from stackoverflow https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
+exports.pickRandomProperty = function pickRandomProperty(obj) 
+{
+    var result;
+    var count = 0;
+    for (var prop in obj)
+        if (Math.random() < 1/++count)
+        result = prop;
+    return result;
+};   

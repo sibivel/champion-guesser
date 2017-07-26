@@ -1,8 +1,8 @@
 {
   "watch": ["src","server"],
   "ignore": ["src/**/*.spec.ts"],
-  "exec": "node server/server.js",
+  "execDumb": "node server/server.js",
   "ext": "js,ts,html",
-  "execShouldBe": "ng build && node server/server.js"
-
+  "exec": "ng build && node server/server.js"
+  
 }

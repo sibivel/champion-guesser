@@ -1,1 +1,7 @@
-<img src="../assets/question-mark.png" alt="..." class = 'my-img img-fluid' id='large-img' >
+<div *ngIf="(matchViewParent.guessedCorrectly); else elseBlock">
+    <img src={{url}} alt="..." class = 'my-img img-fluid' id='large-img'>
+</div>
+    <ng-template #elseBlock>
+        <img src="../assets/question-mark.png" alt="..." class = 'my-img img-fluid' id='large-img' >
+    </ng-template>
+

@@ -1,9 +1,16 @@
-    <div class="row">
+    <div *ngIf="match" class="row">
         <div class=" col-sm-3">
-            <app-large-champ-image></app-large-champ-image>
+            <app-large-champ-image [champion]="match.champion"></app-large-champ-image>
         </div> 
         <div class="col-sm " style = "background-color: #3e4c63; margin:1em">
             <app-match-data-view [match]="match"></app-match-data-view>
         </div>
     </div>
+    <div class="row d-flex justify-content-center">
+        <div class = 'col-' *ngFor="let champion of this.match.options.list.slice(0,20)">
+            <app-champ-thumbnail [champion]="champion"></app-champ-thumbnail>
+        </div>
+    </div>
+    
+    
 

@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(){
 
   }
-  showMatch:boolean = false;
+  showMatch:boolean = true;
   someProperty:string = '';
   public match:MatchDataDto;
   ngOnInit() {

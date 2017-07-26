@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatchDataDto } from "../match";
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { MatchDataDto, ChampionDto } from "../match";
 
 @Component({
   selector: 'app-match-view',
@@ -13,12 +13,15 @@ export class MatchViewComponent implements OnInit {
   @Input()
   match:MatchDataDto;
   
+  guesses:Array<ChampionDto> = [];
+  guessedCorrectly:boolean = false;
   ngOnInit() {
     
   }
 
-  ngOnChanges(){
+  ngOnChanges(changes: SimpleChanges){
     console.log('change, match: '+ this.match)
+
   }
 
 }
