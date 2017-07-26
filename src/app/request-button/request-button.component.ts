@@ -31,15 +31,16 @@ export class RequestButtonComponent implements OnInit {
 
   showMatch(event:Event){
     let thing = this;
+    thing.parentComponent.showMatch = false;
     this.matchService.getMatch().then(function(response){
       console.log(response._body);
       let match = JSON.parse(response._body);
       console.log(match);
-      //thing.parentComponent.showMatch = !thing.parentComponent.showMatch;
+      thing.parentComponent.showMatch = true;
       thing.parentComponent.match = match;
     },function(error){
       let match = thing.fakeMatch();
-      //thing.parentComponent.showMatch = !thing.parentComponent.showMatch;
+      thing.parentComponent.showMatch = true;
       thing.parentComponent.match = match;
     });
   }
