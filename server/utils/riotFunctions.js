@@ -87,6 +87,70 @@ exports.initSummonerSpellData = function(){
     
 }
 
+//Promise
+exports.getChallengerIds = function(){
+    let path = constants.paths.CHALLENGERLEAGUE;
+    path = path.concat(constants.RANKEDSOLO);
+    
+    return new Promise((resolve, reject)=>{
+        makeRiotRequest(path,'NA',{},function(err,res,body){
+            console.log(res.statusCode);
+            if(err != null){
+                console.log('ERROR: ' + err);
+                reject('Request Error: ' + err);
+            }
+            if(res.statusCode == '200'){
+                resolve(JSON.parse(body));
+            }else{
+                reject(JSON.stringify(res));
+            }
+        })
+    });
+}
+
+exports.getSummonerWithSummonerId = function(summonerId){
+    let path = constants.paths.SUMMONERS;
+    path = path.concat(summonerId);
+    return new Promise((resolve, reject)=>{
+        makeRiotRequest(path,'NA',function(err,res,body){
+             console.log(res.statusCode);
+            if(err != null){
+                console.log('ERROR: ' + err);
+                reject('Request Error: ' + err);
+            }
+            if(res.statusCode == '200'){
+                resolve(JSON.parse(body));
+            }else{
+                reject(JSON.stringify(res));
+            }
+        })
+    })
+}
+
+exports.getMatches = function(accountId){
+    let path = constants.paths.MATCHES;
+    path = path.concat(accountId);
+    //path = path.concat('/recent');
+    let currentTime = new Date().getTime();
+    let qs = {
+        queue:420,
+        beginTime: currentTime - 7*(8.64 * 10000000)
+    };
+    return new Promise((resolve, reject)=>{
+        makeRiotRequest(path,'NA',qs,function(err,res,body){
+             console.log(res.statusCode);
+            if(err != null){
+                console.log('ERROR: ' + err);
+                reject('Request Error: ' + err);
+            }
+            if(res.statusCode == '200'){
+                resolve(JSON.parse(body));
+            }else{
+                reject(JSON.stringify(res));
+            }
+        })
+    })
+}
 
 
 function setParticipantIdAndRegion(args){

@@ -23,10 +23,16 @@ module.exports = {
         MASTERIES:  '/lol/static-data/v3/masteries',
         CHAMPIONS:  '/lol/static-data/v3/champions',
         SUMMONERSPELLS:'/lol/static-data/v3/summoner-spells',
+        CHALLENGERLEAGUE:'/lol/league/v3/challengerleagues/by-queue/',
+        SUMMONERS: '/lol/summoner/v3/summoners/',
+        MATCHES : '/lol/match/v3/matchlists/by-account/'
     },
 
     items:{},
     masteries:{},
     champions:{},
     summonerSpells:{},
+
+    RANKEDSOLO: "RANKED_SOLO_5x5",
+    
 }

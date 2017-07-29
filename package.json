@@ -48,6 +48,7 @@
     "typescript": "~2.3.3",
     "nodemon":"^1.11.0",
     "bootstrap": "^4.0.0-alpha.6",
-    "randomstring":"^1.1.5"
+    "randomstring":"^1.1.5",
+    "sqlite":"^2.8.0"
   }
 }

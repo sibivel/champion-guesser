@@ -6,13 +6,30 @@
     "configurations": [
         {
             "type": "node",
+            "request": "launch",
+            "name": "Launch db-control",
+            "program": "${workspaceRoot}/server/models/db-control.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch via NPM",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ],
+            "port": 5858
+        },
+        {
+            "type": "node",
             "request": "attach",
             "name": "Attach",
             "port": 5858
         },
         {
             "type": "node",
-            "request": "launch",
+            "request": "launch1",
             "name": "Launch Program",
             "program": "${workspaceRoot}\\server\\server.js",
             "outFiles": [
