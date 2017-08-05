@@ -24,6 +24,12 @@
     <app-match-view *ngIf="showMatch" [match]="match"></app-match-view>
   </div>
   <div class="row">
-    <app-request-button></app-request-button>
+    <div class = 'col'>
+      <app-request-button></app-request-button>
+    </div>
+    <div *ngIf="guessedCorrectly" class = 'col'>
+      HI
+      <app-request-button></app-request-button>
+    </div>
   </div>
 </div>

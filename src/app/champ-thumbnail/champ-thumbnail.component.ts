@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Injector } from '@angular/core';
+import { Component, OnInit, Input, Injector, Output } from '@angular/core';
 import { ChampionDto } from "../match";
 import { DDragonUtil } from "../../utils";
 import { MatchViewComponent } from "../match-view/match-view.component";
+import { EventEmitter } from "events";
 
 @Component({
   selector: 'app-champ-thumbnail',
@@ -18,8 +19,12 @@ export class ChampThumbnailComponent implements OnInit {
   @Input()
   champion:ChampionDto;
 
-  url:string;
+  @Output() guess: EventEmitter = new EventEmitter();
 
+  url:string;
+  red:boolean = false;
+  gray:boolean = false;
+  green:boolean = false;
   ngOnInit() {
     this.url = DDragonUtil.championSmallUrl(this.champion.key)
   }
@@ -29,7 +34,17 @@ export class ChampThumbnailComponent implements OnInit {
     if(this.matchViewParent.guesses.length < 3){
       this.matchViewParent.guesses.push(this.champion);
       this.matchViewParent.guessedCorrectly = (this.champion.key == this.matchViewParent.match.champion.key);
+      if(this.matchViewParent.guessedCorrectly == false){
+        this.red = true;
+      }else{
+        this.green = true;
+      }
     }
+  }
+
+  myRightClick(event:Event){
+    this.gray = !this.gray;
+    return false;
   }
 
 }

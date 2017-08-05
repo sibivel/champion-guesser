@@ -2,5 +2,31 @@
     border: 0.5em solid #1e63ad;
     border-radius: 0.5em;
     width:110px;
-    
+    z-index: -1;
+}
+
+.red .champ-img{
+    opacity: 0.4;
+}
+.gray .champ-img{
+    opacity: 0.4;
+}
+.green .champ-img{
+    opacity: 0.5;
+}
+
+.red{
+    background: red;
+    display: inline-block;
+    border-radius: 0.5em;
+}
+.gray{
+    background: black;
+    display: inline-block;
+    border-radius: 0.5em;
+}
+.green{
+    background: greenyellow;
+    display: inline-block;
+    border-radius: 0.5em;
 }

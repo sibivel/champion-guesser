@@ -4,7 +4,7 @@ import { MatchDataDto } from "./match";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  
+
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
@@ -14,6 +14,8 @@ export class AppComponent {
   }
   showMatch:boolean = true;
   someProperty:string = '';
+  guessedCorrectly: boolean;
+
   public match:MatchDataDto;
   ngOnInit() {
   }
