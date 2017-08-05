@@ -18,14 +18,15 @@ exports.createTable = function(){
     return db.exec("CREATE TABLE IF NOT EXISTS Matches(MatchId INT, Date DATETIME, Division TEXT);")
 }
 
-// function run(){
-//     db.open('./db.sqlite', {cached: true }).then(
-//         exports.createTable
-//     );
-// }
+exports.getMatches = function(){
+    return db.all('SELECT MatchId FROM Matches');
+}
+
 function logResult(buggy){
     console.log(JSON.stringify(buggy));
 }
+
+
 
 function getMatches(body){
     let entries = body.entries;
@@ -49,4 +50,3 @@ function getMatches(body){
         },()=>{});
     }
 }
-run();

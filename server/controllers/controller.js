@@ -3,6 +3,7 @@ const riotFunctions = require('../utils/riotFunctions');
 const randomstring = require("randomstring");
 const SC = require("../models/session-control");
 const SessionObject = SC.SessionObject;
+const dbControl = require('../models/db-control');
 
 exports.testRequest = function(req,res){
     riotFunctions.magicNumber = 5;
@@ -15,7 +16,13 @@ exports.testRequest = function(req,res){
 }
 
 exports.matchRequest = function(req,res){
-    var data = riotFunctions.getMatchData(res,['2543649693']);
+    dbControl.openDatabase().then(dbControl.getMatches).then(result => {
+        return result[Math.floor(Math.random() * result.length)].MatchId
+    })
+    .then((matchId)=>{
+        riotFunctions.getMatchData(res,[matchId]);
+    })
+    
     //console.log(data);
     //res.send(data);
 }
