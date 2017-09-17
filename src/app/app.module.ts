@@ -13,6 +13,8 @@ import { ChampThumbnailComponent } from './champ-thumbnail/champ-thumbnail.compo
 import { ItemThumbnailComponent } from './item-thumbnail/item-thumbnail.component';
 import { SpellThumbnailComponent } from './spell-thumbnail/spell-thumbnail.component';
 import { KeystoneThumbnailComponent } from './keystone-thumbnail/keystone-thumbnail.component';
+import { ScoreViewComponent } from './score-view/score-view.component';
+import { ScoreService } from './score.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,11 +26,12 @@ import { KeystoneThumbnailComponent } from './keystone-thumbnail/keystone-thumbn
     ItemThumbnailComponent,
     SpellThumbnailComponent,
     KeystoneThumbnailComponent,
+    ScoreViewComponent,
   ],
   imports: [
     BrowserModule, HttpModule,
   ],
-  providers: [MatchService,],
+  providers: [MatchService,ScoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

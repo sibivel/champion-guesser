@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, Input, EventEmitter, Output } from '@angular/core';
 import {MatchService} from '../match.service';
 import { AppComponent } from "../app.component";
 import {MatchDataDto } from "../match";
@@ -14,10 +14,16 @@ export class RequestButtonComponent implements OnInit {
     this.parentComponent = this.inj.get(AppComponent);
   }
   parentComponent:AppComponent;
-
+  
+  @Input() 
+  text:string;
+  
+  @Output()
+  newMatch: EventEmitter<Object> = new EventEmitter<Object>();
   ngOnInit() {
     console.log(this.parentComponent);
-    this.showMatch(null);
+    //this.showMatch(null);
+    
   }
 
   logData(event:Event){
@@ -30,19 +36,21 @@ export class RequestButtonComponent implements OnInit {
   }
 
   showMatch(event:Event){
-    let thing = this;
-    thing.parentComponent.showMatch = false;
-    this.matchService.getMatch().then(function(response){
-      console.log(response._body);
-      let match = JSON.parse(response._body);
-      console.log(match);
-      thing.parentComponent.showMatch = true;
-      thing.parentComponent.match = match;
-    },function(error){
-      let match = thing.fakeMatch();
-      thing.parentComponent.showMatch = true;
-      thing.parentComponent.match = match;
-    });
+    this.newMatch.emit();
+    // let thing = this;
+    // thing.parentComponent.showMatch = false;
+    // this.matchService.getMatch().then(function(response){
+    //   console.log(response._body);
+    //   let match = JSON.parse(response._body);
+    //   console.log(match);
+    //   thing.parentComponent.showMatch = true;
+    //   thing.parentComponent.match = match;
+    // },function(error){
+    //   let match = thing.fakeMatch();
+    //   thing.parentComponent.showMatch = true;
+    //   thing.parentComponent.match = match;
+    // });
+
   }
 
   fakeMatch():MatchDataDto{

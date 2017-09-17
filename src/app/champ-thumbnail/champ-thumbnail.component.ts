@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Injector, Output } from '@angular/core';
+import { Component, OnInit, Input, Injector, Output, EventEmitter } from '@angular/core';
 import { ChampionDto } from "../match";
 import { DDragonUtil } from "../../utils";
 import { MatchViewComponent } from "../match-view/match-view.component";
-import { EventEmitter } from "events";
 
 @Component({
   selector: 'app-champ-thumbnail',
@@ -19,7 +18,7 @@ export class ChampThumbnailComponent implements OnInit {
   @Input()
   champion:ChampionDto;
 
-  @Output() guess: EventEmitter = new EventEmitter();
+  @Output() guess: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   url:string;
   red:boolean = false;
@@ -31,13 +30,19 @@ export class ChampThumbnailComponent implements OnInit {
 
   myOnClick(event:Event){
     console.log(this.champion.name)
-    if(this.matchViewParent.guesses.length < 3){
+    if(this.matchViewParent.guesses.length < 3 && this.matchViewParent.guessedCorrectly != true){
       this.matchViewParent.guesses.push(this.champion);
-      this.matchViewParent.guessedCorrectly = (this.champion.key == this.matchViewParent.match.champion.key);
+      if(!this.matchViewParent.guessedCorrectly)
+        this.matchViewParent.guessedCorrectly = (this.champion.key == this.matchViewParent.match.champion.key);
+      
       if(this.matchViewParent.guessedCorrectly == false){
         this.red = true;
+        this.guess.emit(false);
+
       }else{
         this.green = true;
+        this.guess.emit(false);
+
       }
     }
   }

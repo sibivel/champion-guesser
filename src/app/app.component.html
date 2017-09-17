@@ -19,17 +19,16 @@
   </li>
 </ul> -->
 
+
 <div class="container" style='background-color:gray'>
   <div class="row">
-    <app-match-view *ngIf="showMatch" [match]="match"></app-match-view>
+    <app-match-view *ngIf="showMatch" (guessed)= "onGuess($event)" [match]="match"></app-match-view>
   </div>
   <div class="row">
     <div class = 'col'>
-      <app-request-button></app-request-button>
-    </div>
-    <div *ngIf="guessedCorrectly" class = 'col'>
-      HI
-      <app-request-button></app-request-button>
+      <div *ngIf="showButton" >
+        <app-request-button (newMatch) = "setMatch()" [text] = "nextButtonText"></app-request-button>
+      </div>
     </div>
   </div>
 </div>
