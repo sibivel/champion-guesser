@@ -1,7 +1,7 @@
 # Champion Guesser
 
 This is a personal project I made to learn Angular and NodeJS. It is a web application that shows the user data from a random challenger match from League Of Legends, and then the user tries to guess what champion was played in that match. 
-<div align="center"><img src="screenshot.png"></div>
+![ ](screenshot.PNG)
 This project is not currently hosted anywhere.
 
 
