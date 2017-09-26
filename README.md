@@ -25,7 +25,7 @@ module.exports = {
     devKey: '[DEVKEY]'
 }
 ```
-where [DEVKEY] is you riot api development key.
+where [DEVKEY] is your riot api development key.
 
 4. Open a terminal/bash in the root of the repository.
 5. Run npm install. This should install all of the node modules you will need.
