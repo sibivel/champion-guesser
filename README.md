@@ -1,28 +1,39 @@
-# Components101
+# Champion Guesser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+This is a personal project I made to learn Angular and NodeJS. It is a web application that shows the user data from a random challenger match from League Of Legends, and then the user tries to guess what champion was played in that match. 
+<div align="center"><img src="screenshot.png"></div>
+This project is not currently hosted anywhere.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+Currently you will need your own api key from Riot to run this project as it is not yet hosted publicly. You can get a development key for free [here](https://developer.riotgames.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+### Prerequisites
 
-## Build
+* Development Key: Currently you will need your own api key from Riot to run this project as it is not yet hosted publicly. You can get a development key for free [here](https://developer.riotgames.com/)
+* Installation of NodeJS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Installing
 
-## Running unit tests
+1. Clone the repository somewhere
+2. Create a file called config.js in the root of the repository.
+3. In config.js put
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+module.exports = {
+    devKey: '[DEVKEY]'
+}
+```
+where [DEVKEY] is you riot api development key.
 
-## Running end-to-end tests
+4. Open a terminal/bash in the root of the repository.
+5. Run npm install. This should install all of the node modules you will need.
+### Starting the Server
+#### Using nodemon
+ If nodemon is installed, simply run the command 'nodemon' to build and start the webserver. 
+ If nodemon is not installed, run the command 'npm install nodemon' to install it.
+#### Without using nodemon
+  Run 'ng build' to build the web app, and then npm start to start the webserver
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Now the application should be running at localhost:8000
